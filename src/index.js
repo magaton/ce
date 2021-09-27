@@ -30,7 +30,14 @@ const driver = neo4j.driver(
  * https://neo4j.com/docs/graphql-manual/current/
  */
 
-const neoSchema = new Neo4jGraphQL({ typeDefs, driver })
+//const neoSchema = new Neo4jGraphQL({ typeDefs, driver })
+const neoSchema = new Neo4jGraphQL({
+  typeDefs,
+  driver,
+  config: {
+      skipValidateTypeDefs: true,
+  },
+})
 
 
 async function startApolloServer(){

@@ -1,6 +1,13 @@
 scalar JSON
 scalar JSONObject
 
+type Config {
+   id: String!
+   store: String!
+   brand: String
+   currency: String
+}   
+
 type Client {
    id: String!
    login: String!
@@ -11,10 +18,11 @@ type Client {
    state: String
    country: String
    sponsor: [Client] @relationship(type: "HAS_SPONSOR", direction: OUT)
+   config: [Config] @relationship(type: "HAS_CONFIG", direction: OUT)
    type: String!
    startDate: Date!
    endDate: Date
-   level: Int!
+   level: Int
    typeLevel: String
 }
 
@@ -26,7 +34,7 @@ type Query {
     Returns the upline of the client with login = $login (including specified client itself)
     The caller can request all the fields from Client
     {
-      upline(login: "c25") {
+      upline(where: {login: "c25"}, options: null) {
          id
          name
          type
@@ -35,19 +43,19 @@ type Query {
       }
     }
     """
-    upline(login: String!): [Client] @cypher(statement: """
-        MATCH (me:Client) WHERE me.login=$login
+    upline(where: ClientWhere, options: ClientOptions): [Client!] @cypher(statement: """
+        MATCH (me:Client) WHERE me.login=$where.login
         WITH me
         MATCH path=((client:Client)<-[hs:HAS_SPONSOR*0..2]-(me))
         WITH NODES(path) AS nodes, path, me, LENGTH(path) AS level, client, (LENGTH(path) + client.type) AS typeLevel, CASE WHEN LENGTH(path)>=1 THEN 1 ELSE 0 END AS sponsorIndex
         WITH client, nodes[sponsorIndex] AS sponsor, level, typeLevel
-        RETURN client{.*, level:level, typeLevel: typeLevel, sponsor: sponsor{.*}} AS this
+        RETURN client{.*, level:level, typeLevel: typeLevel, sponsor: sponsor{.*}} AS this ORDER BY COALESCE($options.sort, level) LIMIT COALESCE(TOINTEGER($options.limit), 100)
     """)
 
 
 
    """ 
-   Returns the upline of the user with login = $login in store IN $stores for period = $period
+   Returns the upline of the user with login = $login
     The caller can request all the fields from Client
    {
       downline(login: "c4") {
@@ -58,13 +66,13 @@ type Query {
       }
    }
    """  
-   downline(login: String!): [Client] @cypher(statement: """
-      MATCH (me:Client) WHERE me.login=$login
+   downline(where: ClientWhere, options: ClientOptions): [Client] @cypher(statement: """
+      MATCH (me:Client) WHERE me.login=$where.login
       WITH me
       MATCH path=((client:Client)-[hs:HAS_SPONSOR*0..2]->(me))
       WITH NODES(path) AS nodes, path, me, LENGTH(path) AS level, client, (LENGTH(path) + client.type) AS typeLevel, CASE WHEN LENGTH(path)>=1 THEN 1 ELSE 0 END AS sponsorIndex
       WITH client, nodes[sponsorIndex] AS sponsor, level, typeLevel
-      RETURN client{.*, typeLevel: typeLevel, level: level} AS this
+      RETURN client{.*, typeLevel: typeLevel, level: level} AS this ORDER BY COALESCE($options.sort, level) LIMIT COALESCE(TOINTEGER($options.limit), 10000)
    """)
 
 
