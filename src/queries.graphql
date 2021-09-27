@@ -1,0 +1,51 @@
+//  This works, since 'sponsor' field has not been requested 
+    {
+      upline(login: "c4") {
+         id
+         name
+         type
+         level
+         login
+      }
+    }
+
+// this fails with "Expected to find a node at '  this@525' but found Map"
+   {
+      upline(login: "c4") {
+         id
+         name
+         type
+         level
+         login
+         sponsor {
+            id
+            name
+         }
+      }
+    }
+
+//  This works, since 'sponsor' field has not been requested 
+    {
+      downline(login: "c4") {
+         id
+         name
+         type
+         level
+         login
+      }
+    }
+
+
+// this fails with "Expected to find a node at '  this@504' but found Map"
+
+    {
+        downline(login: "c4") {
+            id
+            name
+            typeLevel
+            sponsor {
+            id
+            name
+            }
+        }
+    }

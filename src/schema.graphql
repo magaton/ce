@@ -5,8 +5,15 @@ type Client {
    id: String!
    login: String!
    name: String!
+   location: Point
+   zip: String
+   city: String
+   state: String
+   country: String
    sponsor: [Client] @relationship(type: "HAS_SPONSOR", direction: OUT)
    type: String!
+   startDate: Date!
+   endDate: Date
    level: Int!
    typeLevel: String
 }
