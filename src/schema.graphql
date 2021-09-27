@@ -1,0 +1,67 @@
+scalar JSON
+scalar JSONObject
+
+type Client {
+   id: String!
+   login: String!
+   name: String!
+   sponsor: [Client] @relationship(type: "HAS_SPONSOR", direction: OUT)
+   type: String!
+   level: Int!
+   typeLevel: String
+}
+
+
+
+type Query {
+
+    """
+    Returns the upline of the client with login = $login (including specified client itself)
+    The caller can request all the fields from Client
+    {
+      upline(login: "c25") {
+         id
+         name
+         type
+         level
+         login
+      }
+    }
+    """
+    upline(login: String!): [Client] @cypher(statement: """
+        MATCH (me:Client) WHERE me.login=$login
+        WITH me
+        MATCH path=((client:Client)<-[hs:HAS_SPONSOR*0..2]-(me))
+        WITH NODES(path) AS nodes, path, me, LENGTH(path) AS level, client, (LENGTH(path) + client.type) AS typeLevel, CASE WHEN LENGTH(path)>=1 THEN 1 ELSE 0 END AS sponsorIndex
+        WITH client, nodes[sponsorIndex] AS sponsor, level, typeLevel
+        RETURN client{.*, level:level, typeLevel: typeLevel, sponsor: sponsor{.*}} AS this
+    """)
+
+
+
+   """ 
+   Returns the upline of the user with login = $login in store IN $stores for period = $period
+    The caller can request all the fields from Client
+   {
+      downline(login: "c4") {
+         id
+         name
+         level
+         typeLevel
+      }
+   }
+   """  
+   downline(login: String!): [Client] @cypher(statement: """
+      MATCH (me:Client) WHERE me.login=$login
+      WITH me
+      MATCH path=((client:Client)-[hs:HAS_SPONSOR*0..2]->(me))
+      WITH NODES(path) AS nodes, path, me, LENGTH(path) AS level, client, (LENGTH(path) + client.type) AS typeLevel, CASE WHEN LENGTH(path)>=1 THEN 1 ELSE 0 END AS sponsorIndex
+      WITH client, nodes[sponsorIndex] AS sponsor, level, typeLevel
+      RETURN client{.*, typeLevel: typeLevel, level: level} AS this
+   """)
+
+
+}
+
+
+
