@@ -60,7 +60,7 @@
       }
     }
 
-//  This works (with map projection as result), since 'sponsor' field has not been requested 
+//  Here ordering does not work (it is not sorted by level)
     {
       downline(where: {login: "c4"}, options: {sort: [{level: ASC}]}) {
          id
@@ -72,10 +72,10 @@
     }
 
 
-// this fails (with map projection as result) with "Expected to find a node at '  this@504' but found Map"
+// this works now. In 2.2.0 it was not. LIMIT is now correctly passed as integer
 
     {
-        downline(where: {login: "c4"}, options: {sort: [{level: ASC}]}) {
+        downline(where: {login: "c4"}, options: {limit: 10}) {
             id
             name
             typeLevel

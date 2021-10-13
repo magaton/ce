@@ -1,4 +1,4 @@
-# POC based on neo4j-graphql official library and GRANDStack
+# POC based on neo4j-graphql official library
 
 ## Quickstart
 
@@ -18,11 +18,11 @@ Execute src/export.cypher
 
 
 ## Run
-npm install
-npm run start:dev
+- npm install
+- npm run start:dev
 
 
 ## Execute queries
 Go to: Apollo studio: http://localhost:4001/graphql
 
-See src/queries.graphql
+Execute queries from src/queries.graphql
