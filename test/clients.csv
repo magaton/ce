@@ -1,5 +1,4 @@
 ﻿id,login,name,sponsor,email,password,type,zip,city,latitude,longitude,state,startDate,ranking,endDate,country
-Root,root,Root,,root@acme.com,password,Root,55795,Willow River,40.153565,-80.253411,MN,2020-01-01T11:09:34Z,,,USA
 0,x0,John Smith,root,x0@acme.com,password,Ambassador,49388,Lancashore,20.328535,-94.47938,GA,2020-01-01T14:08:24Z,1,,USA
 1,x1,Wilber Woodson,x0,x1@acme.com,password,Ambassador,45388,Yorkshire,40.328535,-84.47938,OH,2020-01-02T14:08:24Z,1,,USA
 2,x2,Rosaria Rock,x1,x2@acme.com,password,Ambassador,39483,Foxworth,31.218509,-89.90761,MS,2020-01-03T10:04:55Z,1,,USA
