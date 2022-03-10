@@ -1,0 +1,7 @@
+﻿id,client,p1,q1,p2,q2,p3,q3,date,type,influencer,origin,event
+1001,x0,1001,10,1002,5,1003,7,2021-01-01T09:06:47Z,Order,x1,Instagram,http://www.Instagram.com/x1/2
+1001,x1,1001,10,1002,5,1003,7,2021-01-01T10:06:47Z,Order,x1,Instagram,http://www.Instagram.com/x1/2
+1001,x2,1001,10,1002,5,1003,7,2021-01-01T11:06:47Z,Order,x1,Instagram,http://www.Instagram.com/x1/2
+1001,x3,1001,10,1002,5,1003,7,2021-01-01T12:06:47Z,Order,x1,Instagram,http://www.Instagram.com/x1/2
+1001,x4,1001,10,1002,5,1003,7,2021-01-01T13:06:47Z,Order,x1,Instagram,http://www.Instagram.com/x1/2
+1001,x5,1001,10,1002,5,1003,7,2021-01-01T14:06:47Z,Order,x1,Instagram,http://www.Instagram.com/x1/2
