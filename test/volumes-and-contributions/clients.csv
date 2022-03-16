@@ -1,7 +1,22 @@
-﻿id,login,name,sponsor,email,password,type,zip,city,latitude,longitude,state,startDate,ranking,endDate,country
-0,x0,John Smith,root,x0@acme.com,password,Ambassador,49388,Lancashore,20.328535,-94.47938,GA,2020-01-01T14:08:24Z,1,,USA
-1,x1,Wilber Woodson,x0,x1@acme.com,password,Ambassador,45388,Yorkshire,40.328535,-84.47938,OH,2020-01-02T14:08:24Z,1,,USA
-2,x2,Rosaria Rock,x1,x2@acme.com,password,Ambassador,39483,Foxworth,31.218509,-89.90761,MS,2020-01-03T10:04:55Z,1,,USA
-3,x3,Inger Ikner,x0,x3@acme.com,password,Customer,31503,Waycross,31.205194,-82.37534,GA,2020-01-04T17:09:46Z,,,USA
-5,x4,Kevin Van Gundy,x1,x4@acme.com,password,Customer,34611,Spring Hill,28.564167,-82.416515,FL,2020-01-05T15:49:44Z,,,USA
-6,x5,Kylie Minogue,x2,x5@acme.com,password,Customer,34611,Spring Hill,28.564167,-82.416515,FL,2020-01-05T15:49:44Z,,,USA
+﻿id,login,name,sponsor,leader,email,password,type,zip,city,state,country,geohash,startDate,endDate,ranking
+1,c1,Wilber Woodson,root,root,c1@acme.com,password,Ambassador,45388,Yorkshire,OH,USA,dp5vmm,2020-01-01T00:00:00Z,,1
+2,c2,Rosaria Rock,root,,c2@acme.com,password,Influencer,39483,Foxworth,MS,USA,dj81dy,2020-01-01T00:00:00Z,,
+3,c3,Inger Ikner,root,root,c3@acme.com,password,Ambassador,31503,Waycross,GA,USA,djt3tf,2020-01-01T00:00:00Z,,1
+4,c4,Greta Workman,root,root,c4@acme.com,password,Ambassador,45833,Delphos,OH,USA,dpk02g,2020-01-01T00:00:00Z,,1
+5,c5,Kevin Van Gundy,c4,,c5@acme.com,password,Ambassador,34611,Spring Hill,FL,USA,djj61c,2020-01-01T00:00:00Z,,1
+6,c6,Michael Hunger,root,,c6@acme.com,password,Customer,95717,Gold Run,CA,USA,9qfncu,2020-01-01T00:00:00Z,,
+7,c7,Bryce Merkl Sasaki,c2,,c7@acme.com,password,Ambassador,98849,Riverside,WA,USA,c2e5bt,2020-01-01T00:00:00Z,,1
+8,c8,Nicole White,c3,,c8@acme.com,password,Ambassador,36201,Anniston,AL,USA,djfzqz,2020-01-01T00:00:00Z,,1
+9,c9,Elsy Eckhardt,c1,,c9@acme.com,password,Ambassador,80126,Littleton,CO,USA,9xj367,2020-01-01T00:00:00Z,2020-01-31T23:59:59Z,1
+9,c9,Elsy Eckhardt,c4,,c9@acme.com,password,Ambassador,80126,Littleton,CO,USA,9xj367,2020-02-01T00:00:00Z,,1
+10,c10,Loreta Larrimore,c4,,c10@acme.com,password,Customer,48907,Lansing,MI,USA,dpeg5g,2020-01-01T00:00:00Z,,
+11,c11,Aliza Albrecht,c5,c4,c11@acme.com,password,Ambassador,85228,Coolidge,AZ,USA,9tbew7,2020-01-01T00:00:00Z,,1
+12,c12,Sharyn Santini,c5,,c12@acme.com,password,Customer,13758,East Pharsalia,NY,USA,drd4j5,2020-01-01T00:00:00Z,,
+13,c13,Eugenie Elling,c11,,c13@acme.com,password,Ambassador,76061,Lillian,TX,USA,9vfbum,2020-01-01T00:00:00Z,,1
+14,c14,Kristofer Kirshner,c11,,c14@acme.com,password,Ambassador,5448,East Fairfield,VT,USA,druny0,2020-01-01T00:00:00Z,,1
+15,c15,Irving Izzard,c12,,c15@acme.com,password,Customer,94564,Pinole,CA,USA,9qc01n,2020-01-01T00:00:00Z,,
+16,c16,Elina Enfinger,c2,,c16@acme.com,password,Ambassador,7452,Glen Rock,NJ,USA,dr7311,2020-01-01T00:00:00Z,,1
+17,c17,Max Moschella,c1,,c17@acme.com,password,Ambassador,89409,Gabbs,NV,USA,9qujhe,2020-01-01T00:00:00Z,,1
+18,c18,Elena Elwood,c17,c1,c18@acme.com,password,Ambassador,25044,Clear Creek,WV,USA,dnwpsy,2020-01-01T00:00:00Z,,1
+19,c19,Jeanmarie Jaffe,c17,,c19@acme.com,password,Customer,78789,Austin,TX,USA,9v6kpy,2020-01-01T00:00:00Z,,1
+20,c20,Brianne Buelow,c8,,c20@acme.com,password,Ambassador,20134,Purcellville,VA,USA,dqbwxs,2020-01-01T00:00:00Z,,1
